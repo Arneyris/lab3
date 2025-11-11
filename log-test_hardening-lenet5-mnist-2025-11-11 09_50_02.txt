@@ -1,0 +1,32 @@
+2025-11-11 09:50:02,551 - INFO : run-mode: test_hardening
+2025-11-11 09:50:02,552 - INFO : args: model: lenet5, dataset: mnist, batch_size: 300, pruning_method: hm, is_hardening: True, hardening_ratio: 0.3, importance: deepvigor, clipping: ranger, 
+2025-11-11 09:50:02,655 - INFO : Executing 'test_hardening'
+2025-11-11 09:50:05,014 - INFO : model test top-1 accuracy: 92.19999694824219%
+2025-11-11 09:50:05,015 - INFO : total number of MACs: 416520
+2025-11-11 09:50:05,015 - INFO : total number of parameters: 61706
+2025-11-11 09:50:05,338 - INFO : Executing 'deepvigor'
+2025-11-11 09:50:12,091 - INFO : Derived and saved the vulnerability factors for layer cnv1
+2025-11-11 09:50:56,784 - INFO : Derived and saved the vulnerability factors for layer cnv3
+2025-11-11 09:53:44,664 - INFO : Derived and saved the vulnerability factors for layer cnv5
+2025-11-11 09:53:44,666 - INFO : channels are sorted
+2025-11-11 09:53:44,666 - INFO : Executing 'ranger'
+2025-11-11 09:53:56,415 - INFO : thresholds are derived based on Ranger
+2025-11-11 09:53:56,420 - INFO : model is hardened: LeNet(
+  (cnv1): HardenedConv2d(1, 6, kernel_size=(5, 5), stride=(1, 1), padding=(2, 2), duplicated_channels=1)
+  (relu1): RangerReLU(, threshold=2.798768997192383)
+  (pool2): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (cnv3): HardenedConv2d(6, 16, kernel_size=(5, 5), stride=(1, 1), duplicated_channels=4)
+  (relu3): RangerReLU(, threshold=5.203636169433594)
+  (pool4): MaxPool2d(kernel_size=2, stride=2, padding=0, dilation=1, ceil_mode=False)
+  (cnv5): HardenedConv2d(16, 120, kernel_size=(5, 5), stride=(1, 1), duplicated_channels=36)
+  (relu5): RangerReLU(, threshold=10.110990524291992)
+  (fc6): Linear(in_features=120, out_features=84, bias=True)
+  (relu6): RangerReLU(, threshold=5.8901286125183105)
+  (fc7): Linear(in_features=84, out_features=10, bias=True)
+)
+2025-11-11 09:53:56,423 - INFO : model is hardened and saved
+2025-11-11 09:53:58,679 - INFO : model test top-1 accuracy: 92.31999969482422%
+2025-11-11 09:53:58,679 - INFO : total number of MACs: 512960
+2025-11-11 09:53:58,679 - INFO : total number of parameters: 76772
+2025-11-11 09:53:58,679 - INFO : MACs overhead: 1.2441577804427446
+2025-11-11 09:53:58,679 - INFO : Params overhead: 1.2315375012004226
